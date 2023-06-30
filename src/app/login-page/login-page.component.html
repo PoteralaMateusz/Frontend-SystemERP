@@ -1,0 +1,40 @@
+<div class="center">
+  <h1>Log in</h1>
+  <h4 *ngIf="isLoginFailed">Password is incorrect!</h4>
+  <form
+    *ngIf="!isLoggedIn"
+    name="form"
+    #f="ngForm"
+    novalidate>
+
+    <div class="txt_field">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        #username="ngModel"
+      >
+      <span></span>
+      <label>Username</label>
+    </div>
+
+    <div class="txt_field">
+      <input name="password"
+             type="password"
+             [(ngModel)]="form.password"
+             required
+             minlength="6"
+             #password="ngModel"
+      >
+      <span></span>
+      <label>Password</label>
+    </div>
+    <input class="login" type="submit" (click)="onSubmit()" value="Log in">
+  </form>
+  <div *ngIf="isLoggedIn">
+  <h4>You are success log in!</h4>
+    <input  type="submit" (click)="takeStats()" value="Test take stats">
+  <input  type="submit" (click)="logout()" value="Log out">
+  </div>
+</div>
