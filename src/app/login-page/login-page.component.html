@@ -31,10 +31,11 @@
       <label>Password</label>
     </div>
     <input class="login" type="submit" (click)="onSubmit()" value="Log in">
+    <div class="signup_link">
+      Not a member ? <a href="signup">Signup</a>
+    </div>
   </form>
   <div *ngIf="isLoggedIn">
   <h4>You are success log in!</h4>
-    <input  type="submit" (click)="takeStats()" value="Test take stats">
-  <input  type="submit" (click)="logout()" value="Log out">
   </div>
 </div>

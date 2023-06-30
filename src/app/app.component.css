@@ -14,7 +14,7 @@
   color: #fff;
   overflow: hidden;
   transition: all 0.5s linear;
-  background: rgba(113, 99, 186, 255);
+  background: #000A52;
 }
 
 .sidebar:hover {
@@ -91,7 +91,7 @@
 }
 
 .header--title {
-  color: rgba(113, 99, 186, 255);
+  color: #000A52;
 }
 
 .user--info {
@@ -103,7 +103,7 @@
 .search--box {
   background: rgb(237,237,237);
   border-radius: 15px;
-  color: rgba(113,99,186,255);
+  color: #000A52;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -121,6 +121,10 @@
 }
 .search--box i:hover{
   transform: scale(1.2);
+}
+
+.user--name {
+  color: #000A52;
 }
 
 
