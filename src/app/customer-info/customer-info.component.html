@@ -8,6 +8,8 @@
     <th>City</th>
     <th>ZipCode</th>
     <th>Country</th>
+    <th></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -18,6 +20,62 @@
     <td>{{ customer.city }}</td>
     <td>{{ customer.zipCode }}</td>
     <td>{{ customer.country }}</td>
+    <td><button type="button" (click)="updateCustomer(customer)">Edit</button></td>
+    <td><button type="button" (click)="deleteCustomer(customer)">Delete</button></td>
+
+  </tr>
+  <tr>
+    <td>
+      <input
+      type="text"
+      name="name"
+      [(ngModel)]="form.name"
+      required
+      #name="ngModel">
+    </td>
+
+    <td>
+      <input
+        type="text"
+        name="street"
+        [(ngModel)]="form.street"
+        required
+        #street="ngModel">
+    </td>
+    <td>
+      <input
+        type="number"
+        name="houseNumber"
+        [(ngModel)]="form.houseNumber"
+        required
+        #houseNumber="ngModel">
+    </td>
+    <td>
+      <input
+        type="text"
+        name="city"
+        [(ngModel)]="form.city"
+        required
+        #city="ngModel">
+    </td>
+    <td>
+      <input
+        type="number"
+        name="zipcode"
+        [(ngModel)]="form.zipcode"
+        required
+        #zipcode="ngModel">
+    </td>
+    <td>
+      <input
+        type="text"
+        name="country"
+        [(ngModel)]="form.country"
+        required
+        #country="ngModel">
+    </td>
+    <td><button type="button" (click)="addCustomer()">{{operation}}</button></td>
+    <td><button *ngIf="toUpdate" type="button" (click)="cancelUpdate()">Cancel</button></td>
   </tr>
   </tbody>
 </table>

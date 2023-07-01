@@ -1,5 +1,6 @@
 .content-table {
   border-collapse: collapse;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   font-size: 0.9em;
@@ -32,4 +33,23 @@
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid #000A52;
 }
+
+.content-table tbody td button {
+  background-color: transparent;
+  text-align: center;
+  font-size: 16px;
+  color: #2691d9;
+  text-decoration: underline;
+}
+.content-table tbody td button:hover {
+  color: red;
+  cursor: pointer;
+}
+.content-table tbody input{
+  font-size: 0.9em;
+  height: 20px;
+  width: auto;
+}
+
+
 
