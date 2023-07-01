@@ -5,7 +5,7 @@
   <div class="sidebar">
     <div class="logo"></div>
     <ul class="menu">
-      <li [ngClass]="{'active' : activeSite == '/'}">
+      <li>
         <a href="/" (click)="setActiveDashboard()" routerLink="/">
           <i class="fas fa-tachometer-alt"></i>
           <span>Dashboard</span>
@@ -17,7 +17,7 @@
           <span>Orders</span>
         </a>
       </li>
-      <li [ngClass]="{'active' : activeSite == '/customers'}">
+      <li>
         <a href="/customers" (click)="setActiveCustomer()" routerLink="/customers">
           <i class="fas fa-user"></i>
           <span>Customers</span>
