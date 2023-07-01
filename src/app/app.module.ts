@@ -11,13 +11,15 @@ import {authInterceptorProviders} from "./_helpers/auth.interceptor";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { CustomerPageComponent } from './customer-page/customer-page.component';
+import { OrderPageComponent } from './order-page/order-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    CustomerPageComponent
+    CustomerPageComponent,
+    OrderPageComponent
   ],
   imports: [
     BrowserModule,

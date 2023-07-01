@@ -30,12 +30,4 @@ export class AppComponent implements OnInit {
     this.authServiceService.logout();
     window.location.reload();
   }
-
-  setActiveCustomer() {
-    this.activeSite = '/customers';
-  }
-
-  setActiveDashboard() {
-    this.activeSite = '/';
-  }
 }

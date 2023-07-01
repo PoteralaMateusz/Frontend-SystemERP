@@ -1,0 +1,25 @@
+<h1>Order list:</h1>
+<table class="content-table">
+  <thead>
+  <tr>
+    <th>Order date</th>
+    <th>Customer</th>
+    <th>Number</th>
+    <th>Deadline</th>
+    <th>Finish date</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let order of orders">
+    <td>{{ order.orderDate }}</td>
+    <td>{{ order.customer.name }}</td>
+    <td>{{ order.orderNumber }}</td>
+    <td>{{ order.deadline }}</td>
+    <td>{{ order.finishDate }}</td>
+    <td>{{ order.price }} PLN</td>
+
+  </tr>
+  </tbody>
+</table>
+
