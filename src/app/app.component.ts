@@ -20,13 +20,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.isLogged = this.tokenStorageService.isLoggedIn();
     this.username = this.tokenStorageService.getUsername();
-    if (!this.isLogged) {
-      this.router.navigate(['./login']);
-    }
   }
 
   logout() {
-    this.authServiceService.logout();
     this.tokenStorageService.clear();
+    this.authServiceService.logout();
+    window.location.reload();
   }
+
 }

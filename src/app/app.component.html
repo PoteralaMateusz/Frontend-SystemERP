@@ -35,6 +35,12 @@
           <span>Logout</span>
         </a>
       </li>
+      <li class="logout" *ngIf="!isLogged">
+        <a href="/login" >
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log in !</span>
+        </a>
+      </li>
     </ul>
   </div>
 

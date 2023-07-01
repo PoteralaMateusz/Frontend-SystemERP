@@ -28,7 +28,7 @@ export class AuthServiceService {
     return this.http.post(AUTH_API + 'register', {
       firstname:firstname,
       lastname:lastname,
-      username: username,
+      email: username,
       password: password,
     }, httpOptions).pipe(
       tap(response => {

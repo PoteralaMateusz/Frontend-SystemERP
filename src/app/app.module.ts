@@ -9,11 +9,13 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {authInterceptorProviders} from "./_helpers/auth.interceptor";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,62 @@
+<div class="center">
+  <h1>Sign in</h1>
+  <form
+    *ngIf="!isSignIn"
+    name="form"
+    #f="ngForm"
+    novalidate>
+
+    <div class="txt_field">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        #username="ngModel"
+      >
+      <span></span>
+      <label>Username</label>
+    </div>
+
+    <div class="txt_field">
+      <input name="password"
+             type="password"
+             [(ngModel)]="form.password"
+             required
+             minlength="6"
+             #password="ngModel"
+      >
+      <span></span>
+      <label>Password</label>
+    </div>
+
+    <div class="txt_field">
+      <input name="Firstname"
+             type="text"
+             [(ngModel)]="form.firstname"
+             required
+             minlength="3"
+             #password="ngModel"
+      >
+      <span></span>
+      <label>Firstname</label>
+    </div>
+
+    <div class="txt_field">
+      <input name="Lastname"
+             type="text"
+             [(ngModel)]="form.lastname"
+             required
+             minlength="3"
+             #password="ngModel"
+      >
+      <span></span>
+      <label>Lastname</label>
+    </div>
+
+    <input class="signIn" type="submit" (click)="onSubmit()" value="Sign in">
+  </form>
+  <div *ngIf="isSignIn">
+    <h4>You are success sign in!</h4>
+  </div>
+</div>
