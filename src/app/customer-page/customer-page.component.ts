@@ -5,10 +5,10 @@ import {TokenStorageService} from "../_services/token-storage.service";
 
 @Component({
   selector: 'app-customer-info',
-  templateUrl: './customer-info.component.html',
-  styleUrls: ['./customer-info.component.css']
+  templateUrl: './customer-page.component.html',
+  styleUrls: ['./customer-page.component.css']
 })
-export class CustomerInfoComponent implements OnInit {
+export class CustomerPageComponent implements OnInit {
   public customers = {} as Customer[];
   public isLogged = false;
   public toUpdate = false;
