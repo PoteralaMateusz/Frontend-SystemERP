@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'Frontend-SystemERP';
   isLogged = false;
   username: any;
+  activeSite: any;
 
 
   constructor(private tokenStorageService: TokenStorageService, private authServiceService: AuthServiceService, private router: Router) {
@@ -20,6 +21,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.isLogged = this.tokenStorageService.isLoggedIn();
     this.username = this.tokenStorageService.getUsername();
+    this.activeSite = '/';
+    console.log(this.activeSite)
   }
 
   logout() {
@@ -28,4 +31,11 @@ export class AppComponent implements OnInit {
     window.location.reload();
   }
 
+  setActiveCustomer() {
+    this.activeSite = '/customers';
+  }
+
+  setActiveDashboard() {
+    this.activeSite = '/';
+  }
 }
