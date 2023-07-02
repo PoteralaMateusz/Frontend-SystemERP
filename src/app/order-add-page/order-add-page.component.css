@@ -1,0 +1,66 @@
+form {
+  max-width: 400px;
+  margin: 50px auto auto;
+  padding: 20px;
+  background-color: #000A52;
+  color: white;
+  border-radius: 20px;
+}
+form select{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+form fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+form legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form h4,
+form h5 {
+  margin-bottom: 10px;
+}
+
+form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #000A52;
+  color: #ffffff;
+  border: 2px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ffff;
+  color: #000A52;
+}
+h1{
+  text-align: center;
+}
+
+.itemsDetails form button{
+
+}

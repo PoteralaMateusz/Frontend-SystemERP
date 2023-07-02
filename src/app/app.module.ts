@@ -12,6 +12,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { CustomerPageComponent } from './customer-page/customer-page.component';
 import { OrderPageComponent } from './order-page/order-page.component';
+import { OrderAddPageComponent } from './order-add-page/order-add-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OrderPageComponent } from './order-page/order-page.component';
     LoginPageComponent,
     RegisterPageComponent,
     CustomerPageComponent,
-    OrderPageComponent
+    OrderPageComponent,
+    OrderAddPageComponent
   ],
   imports: [
     BrowserModule,
