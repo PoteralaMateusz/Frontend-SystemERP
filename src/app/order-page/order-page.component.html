@@ -11,6 +11,7 @@
     <th>Deadline</th>
     <th>Finish date</th>
     <th>Price</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -21,7 +22,7 @@
     <td>{{ order.deadline }}</td>
     <td>{{ order.finishDate }}</td>
     <td>{{ order.price }} PLN</td>
-
+    <td><button type="button" (click)="showOrderDetails(order.id)">Details</button></td>
   </tr>
   </tbody>
 </table>

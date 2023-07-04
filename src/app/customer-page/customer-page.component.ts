@@ -72,6 +72,7 @@ export class CustomerPageComponent implements OnInit {
 
   cancelUpdate() {
     this.toUpdate = false;
+    this.operation = 'Add';
     this.form = {
       id: null,
       name: null,

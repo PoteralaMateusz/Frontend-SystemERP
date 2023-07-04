@@ -23,6 +23,10 @@ export class OrderService {
     return this.http.get<Order[]>(`${ORDER_API}`, httpOptions);
   }
 
+  getOrderById(orderId: number):Observable<Order>{
+    return this.http.get<Order>(`${ORDER_API}/${orderId}`,httpOptions);
+  }
+
   saveOrder(customerId: number,
             orderNumber: string,
             orderDate: Date,
