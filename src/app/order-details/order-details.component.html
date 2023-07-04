@@ -35,7 +35,7 @@
         name="material"
         [(ngModel)]="form.material"
         required
-        #name="ngModel">
+        #material="ngModel">
     </td>
 
     <td>
@@ -44,7 +44,7 @@
         name="quality"
         [(ngModel)]="form.quality"
         required
-        #street="ngModel">
+        #quality="ngModel">
     </td>
     <td>
       <input
@@ -52,7 +52,7 @@
         name="weight"
         [(ngModel)]="form.weight"
         required
-        #houseNumber="ngModel">
+        #weight="ngModel">
     </td>
     <td>
       <input
@@ -60,7 +60,7 @@
         name="pieces"
         [(ngModel)]="form.pieces"
         required
-        #city="ngModel">
+        #pieces="ngModel">
     </td>
     <td>
       <input
@@ -68,10 +68,11 @@
         name="donePieces"
         [(ngModel)]="form.donePieces"
         required
-        #zipcode="ngModel">
+        #donePieces="ngModel"
+        *ngIf="toUpdate">
     </td>
-    <td><button type="button" (click)="addItem()">Add</button></td>
-    <td><button  type="button" (click)="cancelAddOrUpdate()">Cancel</button></td>
+    <td><button type="button" (click)="addOrUpdateItem(product.id)">{{operation}}</button></td>
+    <td><button *ngIf="toUpdate" type="button" (click)="cancelAddOrUpdate()">Cancel</button></td>
   </tr>
   </tbody>
 </table>
