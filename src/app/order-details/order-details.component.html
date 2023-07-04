@@ -1,0 +1,78 @@
+<h1>Details about order: {{order.orderNumber}}</h1>
+<div class="products" *ngFor="let product of order.products; let i = index">
+  <h2>Product {{i + 1}}</h2>
+  <h3 class="product-info">
+  Drawing name: {{product.drawingName}},
+     {{product.pieces}} pieces, total weight: {{product.totalWeight}}kg/1pc.
+  </h3>
+<table class="content-table">
+  <thead>
+  <tr>
+    <th>Material</th>
+    <th>Quality</th>
+    <th>Weight [kg/1pc]</th>
+    <th>Pieces</th>
+    <th>Done pieces</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of product.items">
+    <td>{{ item.material }}</td>
+    <td>{{ item.quality }}</td>
+    <td>{{ item.weight }}</td>
+    <td>{{ item.pieces }}</td>
+    <td>{{ item.donePieces }}</td>
+    <td><button type="button" (click)="updateItem(item)">Edit</button></td>
+    <td><button type="button" (click)="deleteItem(item)">Delete</button></td>
+
+  </tr>
+  <tr>
+    <td>
+      <input
+        type="text"
+        name="material"
+        [(ngModel)]="form.material"
+        required
+        #name="ngModel">
+    </td>
+
+    <td>
+      <input
+        type="text"
+        name="quality"
+        [(ngModel)]="form.quality"
+        required
+        #street="ngModel">
+    </td>
+    <td>
+      <input
+        type="number"
+        name="weight"
+        [(ngModel)]="form.weight"
+        required
+        #houseNumber="ngModel">
+    </td>
+    <td>
+      <input
+        type="number"
+        name="pieces"
+        [(ngModel)]="form.pieces"
+        required
+        #city="ngModel">
+    </td>
+    <td>
+      <input
+        type="number"
+        name="donePieces"
+        [(ngModel)]="form.donePieces"
+        required
+        #zipcode="ngModel">
+    </td>
+    <td><button type="button" (click)="addItem()">Add</button></td>
+    <td><button  type="button" (click)="cancelAddOrUpdate()">Cancel</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
