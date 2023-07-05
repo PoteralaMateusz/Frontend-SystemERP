@@ -7,8 +7,8 @@
 
 .statistics {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   padding: 20px;
   margin-left: 20px;
   margin-top: 20px;
@@ -57,5 +57,5 @@
 }
 
 .footer span {
-  letter-spacing: .25rem;
+  letter-spacing: .18rem;
 }
