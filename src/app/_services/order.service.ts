@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {Order} from "../model/order";
+import {OrderStats} from "../model/orderStats";
 
 const ORDER_API = "/url/orders";
 const PRODUCT_API = "/url/products";
@@ -25,6 +26,10 @@ export class OrderService {
 
   getOrderById(orderId: number):Observable<Order>{
     return this.http.get<Order>(`${ORDER_API}/${orderId}`,httpOptions);
+  }
+
+  getOrdersStats():Observable<OrderStats[]>{
+    return this.http.get<OrderStats[]>(`${ORDER_API}/stats`,httpOptions).pipe();
   }
 
   saveOrder(customerId: number,

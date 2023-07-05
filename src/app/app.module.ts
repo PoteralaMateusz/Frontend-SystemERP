@@ -15,6 +15,8 @@ import { OrderPageComponent } from './order-page/order-page.component';
 import { OrderAddPageComponent } from './order-add-page/order-add-page.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 
+import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     CustomerPageComponent,
     OrderPageComponent,
     OrderAddPageComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    StatisticsPageComponent
   ],
   imports: [
     BrowserModule,
