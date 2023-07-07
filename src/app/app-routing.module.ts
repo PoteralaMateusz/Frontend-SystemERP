@@ -7,6 +7,8 @@ import {OrderPageComponent} from "./order-page/order-page.component";
 import {OrderAddPageComponent} from "./order-add-page/order-add-page.component";
 import {OrderDetailsComponent} from "./order-details/order-details.component";
 import {StatisticsPageComponent} from "./statistics-page/statistics-page.component";
+import {ProductAddPageComponent} from "./product-add-page/product-add-page.component";
+import {ItemAddPageComponent} from "./item-add-page/item-add-page.component";
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'customers', component: CustomerPageComponent},
   {path: 'orders', component: OrderPageComponent},
   {path: 'add-order', component: OrderAddPageComponent},
+  {path: 'add-product', component: ProductAddPageComponent},
+  {path: 'add-item', component: ItemAddPageComponent},
   {path: 'order-details', component: OrderDetailsComponent},
   {path: 'statistics', component: StatisticsPageComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full' }

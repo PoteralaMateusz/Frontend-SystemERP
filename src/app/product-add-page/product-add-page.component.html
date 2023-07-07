@@ -1,0 +1,14 @@
+<div class="productDetails" >
+
+  <h1>Enter the products:</h1>
+  <form (ngSubmit)="submitProductDetails()">
+    <label for="drawingName">Drawing name:</label>
+    <input type="text" id="drawingName" name="drawingName" [(ngModel)]="product.drawingName">
+
+    <label for="pieces">Pieces:</label>
+    <input type="number" id="pieces" name="pieces" [(ngModel)]="product.pieces">
+
+    <button type="submit">Submit</button>
+  </form>
+
+</div >

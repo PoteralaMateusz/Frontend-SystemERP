@@ -1,0 +1,116 @@
+form {
+  max-width: 400px;
+  margin: 50px auto auto;
+  padding: 20px;
+  background-color: #000A52;
+  color: white;
+  border-radius: 20px;
+}
+form select{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+form fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+form legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form h4,
+form h5 {
+  margin-bottom: 10px;
+}
+
+form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #000A52;
+  color: #ffffff;
+  border: 2px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ffff;
+  color: #000A52;
+}
+h1{
+  text-align: center;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #000A52;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #000A52;
+}
+
+.content-table tbody td button {
+  background-color: transparent;
+  text-align: center;
+  font-size: 16px;
+  color: #2691d9;
+  text-decoration: underline;
+}
+.content-table tbody td button:hover {
+  color: red;
+  cursor: pointer;
+}
+.content-table tbody input{
+  font-size: 0.9em;
+  height: 20px;
+  width: auto;
+}
+

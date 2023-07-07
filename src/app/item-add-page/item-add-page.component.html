@@ -1,0 +1,42 @@
+<div class="itemsDetails">
+
+  <h1>Enter the items of the product </h1>
+  <h1>{{message}}</h1>
+  <form >
+    <label for="material">Material:</label>
+    <input type="text" id="material" name="material" [(ngModel)]="item.material">
+
+    <label for="quality">Quality:</label>
+    <input type="text" id="quality" name="quality" [(ngModel)]="item.quality">
+
+    <label for="piecesItem">Pieces:</label>
+    <input type="number" id="piecesItem" name="piecesItem" [(ngModel)]="item.pieces">
+
+    <label for="weight">Weight [kg/pc.]</label>
+    <input type="number" id="weight" name="quality" [(ngModel)]="item.weight">
+
+    <button type="submit" (click)="submitItemDetails()">Submit</button>
+    <button type="submit" (click)="addNextProduct()">Add next product</button>
+    <button type="submit" (click)="done()">Done!</button>
+  </form>
+
+</div>
+
+<table class="content-table">
+  <thead>
+  <tr>
+    <th>Material</th>
+    <th>Quality</th>
+    <th>Weight [kg/1pc]</th>
+    <th>Pieces</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of product.items">
+    <td>{{ item.material }}</td>
+    <td>{{ item.quality }}</td>
+    <td>{{ item.weight }}</td>
+    <td>{{ item.pieces }}</td>
+  </tr>
+  </tbody>
+</table>
