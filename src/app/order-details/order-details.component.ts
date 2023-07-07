@@ -24,6 +24,7 @@ export class OrderDetailsComponent {
   };
   toUpdate = false;
   operation = "Add";
+  isEditMode = false;
 
 
   constructor(private route: ActivatedRoute, private orderService: OrderService, private itemService: ItemService) {
@@ -81,5 +82,9 @@ export class OrderDetailsComponent {
       this.itemService.addItem(productId, material, quality, pieces, weight).subscribe();
       window.location.reload();
     }
+  }
+
+  editMode() {
+    this.isEditMode = !this.isEditMode;
   }
 }

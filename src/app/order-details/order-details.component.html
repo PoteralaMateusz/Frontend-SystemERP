@@ -1,4 +1,5 @@
 <h1>Details about order: {{order.orderNumber}}</h1>
+<input class="edit-order" type="submit" (click)="editMode()" value="{{isEditMode ? 'Close edit' : 'Edit mode'}}">
 <div class="products" *ngFor="let product of order.products; let i = index">
   <h2>Product {{i + 1}}</h2>
   <h3 class="product-info">
@@ -13,8 +14,8 @@
     <th>Weight [kg/1pc]</th>
     <th>Pieces</th>
     <th>Done pieces</th>
-    <th></th>
-    <th></th>
+    <th *ngIf="isEditMode"></th>
+    <th *ngIf="isEditMode"></th>
   </tr>
   </thead>
   <tbody>
@@ -24,11 +25,11 @@
     <td>{{ item.weight }}</td>
     <td>{{ item.pieces }}</td>
     <td>{{ item.donePieces }}</td>
-    <td><button type="button" (click)="updateItem(item)">Edit</button></td>
-    <td><button type="button" (click)="deleteItem(item)">Delete</button></td>
+    <td *ngIf="isEditMode"><button type="button" (click)="updateItem(item)">Edit</button></td>
+    <td *ngIf="isEditMode"><button type="button" (click)="deleteItem(item)">Delete</button></td>
 
   </tr>
-  <tr>
+  <tr *ngIf="isEditMode">
     <td>
       <input
         type="text"
