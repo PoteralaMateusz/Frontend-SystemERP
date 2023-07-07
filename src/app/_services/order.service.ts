@@ -52,32 +52,4 @@ export class OrderService {
       })
     );
   }
-
-  addProductToOrder(orderId: number, drawingName: string, pieces: number): Observable<any> {
-    return this.http.post(`${PRODUCT_API}`, {
-      drawingName: drawingName,
-      pieces: pieces,
-      orderId: orderId,
-      items: []
-    }, httpOptions).pipe(
-      tap(response => {
-        console.log(response);
-      })
-    );
-  }
-
-  addItemToProduct(productId: number, material: string, quality: string, pieces: number, weight: number): Observable<any> {
-    return this.http.post(`${ITEM_API}`, {
-      productId:productId,
-      material:material,
-      quality:quality,
-      pieces:pieces,
-      weight:weight
-    },httpOptions).pipe(
-      tap(response => {
-        console.log(response);
-      })
-    )
-  }
-
 }
