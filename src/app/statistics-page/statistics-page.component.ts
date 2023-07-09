@@ -7,10 +7,10 @@ import {OrderStats} from "../model/orderStats";
   templateUrl: './statistics-page.component.html',
   styleUrls: ['./statistics-page.component.css']
 })
-export class StatisticsPageComponent implements OnInit{
-  ordersStats = {} as OrderStats[];
+export class StatisticsPageComponent implements OnInit {
+  ordersStats: OrderStats[] = [];
 
-  constructor(private orderService:OrderService) {
+  constructor(private orderService: OrderService) {
   }
 
   ngOnInit(): void {
@@ -21,21 +21,21 @@ export class StatisticsPageComponent implements OnInit{
     });
   }
 
-  progressPercentage(workProgress:number):number {
-    if (workProgress == null){
+  progressPercentage(workProgress: number): number {
+    if (workProgress == null) {
       return 0;
     }
-    if (isNaN(workProgress)){
+    if (isNaN(workProgress)) {
       return 0;
     }
     return Math.ceil(workProgress);
   }
 
-  deadlineInformation(daysToDeadline: number):string {
-    if(daysToDeadline == 1){
+  deadlineInformation(daysToDeadline: number): string {
+    if (daysToDeadline == 1) {
       return daysToDeadline + ' day to deadline !!!';
     }
-    if (daysToDeadline <= 0){
+    if (daysToDeadline <= 0) {
       return Math.abs(daysToDeadline) + ' days after deadline !!!';
     }
 

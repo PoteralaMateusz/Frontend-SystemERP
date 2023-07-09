@@ -9,6 +9,7 @@ import {OrderDetailsComponent} from "./order-details/order-details.component";
 import {StatisticsPageComponent} from "./statistics-page/statistics-page.component";
 import {ProductAddPageComponent} from "./product-add-page/product-add-page.component";
 import {ItemAddPageComponent} from "./item-add-page/item-add-page.component";
+import {ProductEditPageComponent} from "./product-edit-page/product-edit-page.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'orders', component: OrderPageComponent},
   {path: 'add-order', component: OrderAddPageComponent},
   {path: 'add-product', component: ProductAddPageComponent},
+  {path: 'edit-product', component: ProductEditPageComponent},
   {path: 'add-item', component: ItemAddPageComponent},
   {path: 'order-details', component: OrderDetailsComponent},
   {path: 'statistics', component: StatisticsPageComponent},

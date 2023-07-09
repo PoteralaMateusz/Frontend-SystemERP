@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {OrderService} from "../_services/order.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../_services/product.service";
 

@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {OrderService} from "../_services/order.service";
 import {Order} from "../model/order";
 import {Item} from "../model/item";
 import {ItemService} from "../_services/item.service";
+import {ProductService} from "../_services/product.service";
 
 @Component({
   selector: 'app-order-details',
@@ -26,8 +27,9 @@ export class OrderDetailsComponent {
   operation = "Add";
   isEditMode = false;
 
-
-  constructor(private route: ActivatedRoute, private orderService: OrderService, private itemService: ItemService) {
+  constructor(private route: ActivatedRoute, private router: Router,
+              private orderService: OrderService, private itemService: ItemService,
+              private productService: ProductService) {
     this.route.params.subscribe(params => {
       this.orderId = params;
     });
@@ -86,5 +88,18 @@ export class OrderDetailsComponent {
 
   editMode() {
     this.isEditMode = !this.isEditMode;
+  }
+
+  addNewProduct() {
+    this.router.navigate(['add-product', {orderId: this.orderId.id}]);
+  }
+
+  editProduct(id: number) {
+    this.router.navigate(['edit-product', {productId: id}]);
+  }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProductById(id).subscribe();
+    window.location.reload();
   }
 }

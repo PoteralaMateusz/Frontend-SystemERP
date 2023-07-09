@@ -12,10 +12,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./order-add-page.component.css']
 })
 export class OrderAddPageComponent implements OnInit {
-  customers = {} as Customer[];
+  customers: Customer[] = [];
   orderDetail: any = {
     customerId: null,
-    orderNumber: '',
+    orderNumber: null,
     orderDate: null,
     deadline: null,
     finishDate: null,
@@ -23,7 +23,7 @@ export class OrderAddPageComponent implements OnInit {
     products: {} as Product,
     items: {} as Item
   };
-  orderId: any;
+  orderId: number = 0;
 
   constructor(private customerService: CustomerService, private orderService: OrderService, private router: Router) {
 

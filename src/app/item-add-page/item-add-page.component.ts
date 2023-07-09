@@ -10,7 +10,6 @@ import {ProductService} from "../_services/product.service";
   styleUrls: ['./item-add-page.component.css']
 })
 export class ItemAddPageComponent {
-  message: any;
   item: any = {
     material: null,
     quality: null,
@@ -20,7 +19,6 @@ export class ItemAddPageComponent {
   product = {} as Product;
   productId: any;
   orderId: any;
-  items: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private itemService: ItemService, private productService: ProductService) {
     this.route.params.subscribe(params => {
@@ -44,7 +42,6 @@ export class ItemAddPageComponent {
       this.item.pieces,
       this.item.weight
     ).subscribe();
-    this.message = "Item added successful! Add next item, new product or done create order.";
     this.item = {};
     window.location.reload();
   }

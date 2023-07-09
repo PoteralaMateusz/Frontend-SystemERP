@@ -9,7 +9,7 @@ import {TokenStorageService} from "../_services/token-storage.service";
   styleUrls: ['./customer-page.component.css']
 })
 export class CustomerPageComponent implements OnInit {
-  public customers = {} as Customer[];
+  public customers: Customer[] = [];
   public isLogged = false;
   public toUpdate = false;
   form: any = {

@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./order-page.component.css']
 })
 export class OrderPageComponent implements OnInit{
-  orders = {} as Order[];
+  orders:Order[] = [];
   form: any;
 
   constructor(private orderService:OrderService, private router:Router) {
@@ -23,6 +23,6 @@ export class OrderPageComponent implements OnInit{
   }
 
   showOrderDetails(id:number) {
-  this.router.navigate(['order-details',{id: id}]);
+    this.router.navigate(['order-details', {id: id}]);
   }
 }

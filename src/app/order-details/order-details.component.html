@@ -1,80 +1,114 @@
 <h1>Details about order: {{order.orderNumber}}</h1>
-<input class="edit-order" type="submit" (click)="editMode()" value="{{isEditMode ? 'Close edit' : 'Edit mode'}}">
+<div class="edit-order">
+  <input type="submit" (click)="addNewProduct()" *ngIf="isEditMode" value="Add new product">
+  <input type="submit" (click)="editMode()" value="{{isEditMode ? 'Close edit' : 'Edit details'}}">
+</div>
 <div class="products" *ngFor="let product of order.products; let i = index">
-  <h2>Product {{i + 1}}</h2>
-  <h3 class="product-info">
-  Drawing name: {{product.drawingName}},
-     {{product.pieces}} pieces, total weight: {{product.totalWeight}}kg/1pc.
-  </h3>
-<table class="content-table">
-  <thead>
-  <tr>
-    <th>Material</th>
-    <th>Quality</th>
-    <th>Weight [kg/1pc]</th>
-    <th>Pieces</th>
-    <th>Done pieces</th>
-    <th *ngIf="isEditMode"></th>
-    <th *ngIf="isEditMode"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of product.items">
-    <td>{{ item.material }}</td>
-    <td>{{ item.quality }}</td>
-    <td>{{ item.weight }}</td>
-    <td>{{ item.pieces }}</td>
-    <td>{{ item.donePieces }}</td>
-    <td *ngIf="isEditMode"><button type="button" (click)="updateItem(item)">Edit</button></td>
-    <td *ngIf="isEditMode"><button type="button" (click)="deleteItem(item)">Delete</button></td>
+  <div class="product-info">
+    <ul>
+      <li class="product-index">Product {{i + 1}}
+        <input class="edit-product" type="submit" (click)="deleteProduct(product.id)" *ngIf="isEditMode"
+               value="Delete">
+        <input class="edit-product" type="submit" (click)="editProduct(product.id)" *ngIf="isEditMode"
+               value="Edit product">
+      </li>
+    </ul>
+    <table class="content-table">
+      <tbody>
+      <tr>
+        <td>Drawing name:</td>
+        <td>{{product.drawingName}}</td>
+      </tr>
+      <tr>
+        <td>Pieces:</td>
+        <td>{{product.pieces}}</td>
 
-  </tr>
-  <tr *ngIf="isEditMode">
-    <td>
-      <input
-        type="text"
-        name="material"
-        [(ngModel)]="form.material"
-        required
-        #material="ngModel">
-    </td>
+      </tr>
+      <tr>
+        <td>Total weight::</td>
+        <td>{{product.totalWeight}} kg/1pc</td>
+      </tr>
+      </tbody>
+    </table>
 
-    <td>
-      <input
-        type="text"
-        name="quality"
-        [(ngModel)]="form.quality"
-        required
-        #quality="ngModel">
-    </td>
-    <td>
-      <input
-        type="number"
-        name="weight"
-        [(ngModel)]="form.weight"
-        required
-        #weight="ngModel">
-    </td>
-    <td>
-      <input
-        type="number"
-        name="pieces"
-        [(ngModel)]="form.pieces"
-        required
-        #pieces="ngModel">
-    </td>
-    <td>
-      <input
-        type="number"
-        name="donePieces"
-        [(ngModel)]="form.donePieces"
-        required
-        #donePieces="ngModel"
-        *ngIf="toUpdate">
-    </td>
-    <td><button type="button" (click)="addOrUpdateItem(product.id)">{{operation}}</button></td>
-    <td><button *ngIf="toUpdate" type="button" (click)="cancelAddOrUpdate()">Cancel</button></td>
-  </tr>
-  </tbody>
-</table>
+  </div>
+  <table class="content-table">
+    <thead>
+    <tr>
+      <th>Material</th>
+      <th>Quality</th>
+      <th>Weight [kg/1pc]</th>
+      <th>Pieces</th>
+      <th>Done pieces</th>
+      <th *ngIf="isEditMode"></th>
+      <th *ngIf="isEditMode"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of product.items">
+      <td>{{ item.material }}</td>
+      <td>{{ item.quality }}</td>
+      <td>{{ item.weight }}</td>
+      <td>{{ item.pieces }}</td>
+      <td>{{ item.donePieces }}</td>
+      <td *ngIf="isEditMode">
+        <button type="button" (click)="updateItem(item)">Edit</button>
+      </td>
+      <td *ngIf="isEditMode">
+        <button type="button" (click)="deleteItem(item)">Delete</button>
+      </td>
+
+    </tr>
+    <tr *ngIf="isEditMode">
+      <td>
+        <input
+          type="text"
+          name="material"
+          [(ngModel)]="form.material"
+          required
+          #material="ngModel">
+      </td>
+
+      <td>
+        <input
+          type="text"
+          name="quality"
+          [(ngModel)]="form.quality"
+          required
+          #quality="ngModel">
+      </td>
+      <td>
+        <input
+          type="number"
+          name="weight"
+          [(ngModel)]="form.weight"
+          required
+          #weight="ngModel">
+      </td>
+      <td>
+        <input
+          type="number"
+          name="pieces"
+          [(ngModel)]="form.pieces"
+          required
+          #pieces="ngModel">
+      </td>
+      <td>
+        <input
+          type="number"
+          name="donePieces"
+          [(ngModel)]="form.donePieces"
+          required
+          #donePieces="ngModel"
+          *ngIf="toUpdate">
+      </td>
+      <td>
+        <button type="button" (click)="addOrUpdateItem(product.id)">{{operation}}</button>
+      </td>
+      <td>
+        <button *ngIf="toUpdate" type="button" (click)="cancelAddOrUpdate()">Cancel</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

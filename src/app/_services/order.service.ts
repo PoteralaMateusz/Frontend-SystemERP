@@ -5,8 +5,6 @@ import {Order} from "../model/order";
 import {OrderStats} from "../model/orderStats";
 
 const ORDER_API = "/url/orders";
-const PRODUCT_API = "/url/products";
-const ITEM_API = "/url/items";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
