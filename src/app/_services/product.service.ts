@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {Product} from "../model/product";
@@ -8,21 +8,24 @@ const PRODUCT_API = "/url/products";
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getProductById(productId:number):Observable<Product>{
+  getProductById(productId: number): Observable<Product> {
     return this.http.get<Product>(`${PRODUCT_API}/${productId}`
-      ,httpOptions).pipe(
+      , httpOptions).pipe(
       tap(response => {
         console.log(response);
       })
     );
   }
+
   addProductToOrder(orderId: number, drawingName: string, pieces: number): Observable<any> {
     return this.http.post(`${PRODUCT_API}`, {
       drawingName: drawingName,
@@ -35,11 +38,23 @@ export class ProductService {
       })
     );
   }
-  deleteProductById(productId:number):Observable<any>{
+
+  deleteProductById(productId: number): Observable<any> {
     return this.http.delete(`${PRODUCT_API}/${productId}`
-      ,httpOptions).pipe(
-        tap(response => {
-      console.log(response);
-    }));
+      , httpOptions).pipe(
+      tap(response => {
+        console.log(response);
+      }));
+  }
+
+  updateProduct(productId: number, drawingName: string, pieces: number, totalWeight: number): Observable<any> {
+    return this.http.patch(`${PRODUCT_API}/${productId}`, {
+      drawingName:drawingName,
+      pieces:pieces,
+      totalWeight:totalWeight,
+    }, httpOptions).pipe(
+      tap(response => {
+        console.log(response);
+      }));
   }
 }
