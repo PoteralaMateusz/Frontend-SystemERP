@@ -16,7 +16,8 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   getProductById(productId:number):Observable<Product>{
-    return this.http.get<Product>(`${PRODUCT_API}/${productId}`,httpOptions).pipe(
+    return this.http.get<Product>(`${PRODUCT_API}/${productId}`
+      ,httpOptions).pipe(
       tap(response => {
         console.log(response);
       })
@@ -33,5 +34,12 @@ export class ProductService {
         console.log(response);
       })
     );
+  }
+  deleteProductById(productId:number):Observable<any>{
+    return this.http.delete(`${PRODUCT_API}/${productId}`
+      ,httpOptions).pipe(
+        tap(response => {
+      console.log(response);
+    }));
   }
 }
