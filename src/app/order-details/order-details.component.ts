@@ -12,7 +12,7 @@ import {ProductService} from "../_services/product.service";
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent {
-  orderId: any;
+  params: any;
   order = {} as Order;
   form: any = {
     id: null,
@@ -31,9 +31,9 @@ export class OrderDetailsComponent {
               private orderService: OrderService, private itemService: ItemService,
               private productService: ProductService) {
     this.route.params.subscribe(params => {
-      this.orderId = params;
+      this.params = params;
     });
-    this.orderService.getOrderById(this.orderId.id).subscribe({
+    this.orderService.getOrderById(this.params.id).subscribe({
       next: data => {
         this.order = data;
       }
@@ -41,17 +41,7 @@ export class OrderDetailsComponent {
   }
 
   updateItem(item: Item) {
-    this.form = {
-      id: item.id,
-      productId: item.productId,
-      material: item.material,
-      quality: item.quality,
-      pieces: item.pieces,
-      donePieces: item.donePieces,
-      weight: item.weight
-    };
-    this.toUpdate = true;
-    this.operation = "Save";
+    this.router.navigate(['edit-item', {productId: item.id,orderId:this.params.id}]);
   }
 
   deleteItem(item: Item) {
@@ -59,7 +49,7 @@ export class OrderDetailsComponent {
     window.location.reload();
   }
 
-  cancelAddOrUpdate() {
+  clearAddForm() {
     this.form = {
       id: null,
       productId: null,
@@ -70,20 +60,12 @@ export class OrderDetailsComponent {
       weight: null
     };
     this.toUpdate = false;
-    this.operation = "Add";
-
   }
 
-  addOrUpdateItem(productId: number) {
-    if (this.toUpdate) {
-      const {id, material, quality, pieces, donePieces, weight} = this.form;
-      this.itemService.updateItem(id, material, quality, pieces, donePieces, weight).subscribe();
-      window.location.reload();
-    } else {
+  addItem(productId: number) {
       const {material, quality, pieces, weight} = this.form;
       this.itemService.addItem(productId, material, quality, pieces, weight).subscribe();
       window.location.reload();
-    }
   }
 
   editMode() {
@@ -91,7 +73,7 @@ export class OrderDetailsComponent {
   }
 
   addNewProduct() {
-    this.router.navigate(['add-product', {orderId: this.orderId.id}]);
+    this.router.navigate(['add-product', {orderId: this.params.id}]);
   }
 
   editProduct(id: number) {

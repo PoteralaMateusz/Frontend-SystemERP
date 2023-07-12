@@ -47,11 +47,11 @@ export class ProductService {
       }));
   }
 
-  updateProduct(productId: number, drawingName: string, pieces: number, totalWeight: number): Observable<any> {
+  updateProduct(productId: number, drawingName: string, pieces: number): Observable<any> {
     return this.http.patch(`${PRODUCT_API}/${productId}`, {
       drawingName:drawingName,
       pieces:pieces,
-      totalWeight:totalWeight,
+      totalWeight:null,
     }, httpOptions).pipe(
       tap(response => {
         console.log(response);

@@ -26,8 +26,9 @@ export class ProductEditPageComponent {
 
 
   saveChanges() {
-    this.productService.updateProduct(this.productId,this.product.drawingName,this.product.pieces,this.product.totalWeight).subscribe();
+    this.productService.updateProduct(this.productId,this.product.drawingName,this.product.pieces).subscribe();
     window.location.reload();
+
   }
 
   cancelChanges() {

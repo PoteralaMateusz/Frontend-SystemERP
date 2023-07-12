@@ -103,10 +103,10 @@
           *ngIf="toUpdate">
       </td>
       <td>
-        <button type="button" (click)="addOrUpdateItem(product.id)">{{operation}}</button>
+        <button type="button" (click)="addItem(product.id)">Add</button>
       </td>
       <td>
-        <button *ngIf="toUpdate" type="button" (click)="cancelAddOrUpdate()">Cancel</button>
+        <button type="button" (click)="clearAddForm()">Clear</button>
       </td>
     </tr>
     </tbody>
