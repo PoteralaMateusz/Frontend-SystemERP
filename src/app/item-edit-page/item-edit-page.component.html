@@ -1,0 +1,63 @@
+<h1>Change item details</h1>
+
+<table class="content-table">
+  <tbody>
+  <tr>
+    <td>Material:</td>
+    <td>
+      <input
+        type="text"
+        name="material"
+        [(ngModel)]="item.material"
+        required>
+    </td>
+  </tr>
+  <tr>
+    <td>Quality:</td>
+    <td>
+      <input
+        type="text"
+        name="pieces"
+        [(ngModel)]="item.quality"
+        required>
+    </td>
+
+  </tr>
+  <tr>
+    <td>Weight [kg/1pc]:</td>
+    <td>
+      <input
+        type="number"
+        name="weight"
+        [(ngModel)]="item.weight"
+        required>
+    </td>
+  </tr>
+  <tr>
+    <td>Pieces:</td>
+    <td>
+      <input
+        type="number"
+        name="pieces"
+        [(ngModel)]="item.pieces"
+        required>
+    </td>
+  </tr>
+  <tr>
+    <td>Done pieces:</td>
+    <td>
+      <input
+        type="number"
+        name="donePieces"
+        [(ngModel)]="item.donePieces"
+        required>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="edit-product">
+  <input type="submit" (click)="saveChanges()"  value="Save">
+  <input type="submit" (click)="cancelChanges()" value="Cancel">
+</div>
+

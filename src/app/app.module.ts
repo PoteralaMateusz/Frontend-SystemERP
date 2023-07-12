@@ -19,6 +19,7 @@ import { StatisticsPageComponent } from './statistics-page/statistics-page.compo
 import { ProductAddPageComponent } from './product-add-page/product-add-page.component';
 import { ItemAddPageComponent } from './item-add-page/item-add-page.component';
 import { ProductEditPageComponent } from './product-edit-page/product-edit-page.component';
+import { ItemEditPageComponent } from './item-edit-page/item-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductEditPageComponent } from './product-edit-page/product-edit-page.
     StatisticsPageComponent,
     ProductAddPageComponent,
     ItemAddPageComponent,
-    ProductEditPageComponent
+    ProductEditPageComponent,
+    ItemEditPageComponent
   ],
   imports: [
     BrowserModule,
