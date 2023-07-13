@@ -50,4 +50,13 @@ export class OrderService {
       })
     );
   }
+
+  setOrderAsFinnish(orderId:number):Observable<any>{
+    return this.http.post(`${ORDER_API}/done/${orderId}`
+      ,httpOptions).pipe(
+      tap(response => {
+        console.log(response);
+      })
+    );
+  }
 }

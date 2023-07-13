@@ -1,7 +1,7 @@
 <h1>Details about order: {{order.orderNumber}}</h1>
 <div class="edit-order">
   <input type="submit" (click)="addNewProduct()" *ngIf="isEditMode" value="Add new product">
-  <input type="submit" (click)="editMode()" value="{{isEditMode ? 'Close edit' : 'Edit details'}}">
+  <input type="submit" (click)="editMode()" *ngIf="isFinished" value="{{isEditMode ? 'Close edit' : 'Edit details'}}">
 </div>
 <div class="products" *ngFor="let product of order.products; let i = index">
   <div class="product-info">

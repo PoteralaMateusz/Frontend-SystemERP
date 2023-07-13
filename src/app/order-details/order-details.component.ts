@@ -26,6 +26,7 @@ export class OrderDetailsComponent {
   toUpdate = false;
   operation = "Add";
   isEditMode = false;
+  isFinished = true;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private orderService: OrderService, private itemService: ItemService,
@@ -36,6 +37,9 @@ export class OrderDetailsComponent {
     this.orderService.getOrderById(this.params.id).subscribe({
       next: data => {
         this.order = data;
+        if (this.order.finishDate != null){
+          this.isFinished = false;
+        }
       }
     });
   }

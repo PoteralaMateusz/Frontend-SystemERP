@@ -36,6 +36,8 @@
     <th>Finish date</th>
     <th>Price</th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -47,6 +49,8 @@
     <td>{{ order.finishDate }}</td>
     <td>{{ order.price }} PLN</td>
     <td><button type="button" (click)="showOrderDetails(order.id)">Details</button></td>
+    <td><button type="button" (click)="setAsFinished(order.id)" *ngIf="!showFinished">Set as finish</button></td>
+    <td><button type="button" (click)="workProgress(order.id)" *ngIf="!showFinished">Work progress</button></td>
   </tr>
   </tbody>
 </table>
