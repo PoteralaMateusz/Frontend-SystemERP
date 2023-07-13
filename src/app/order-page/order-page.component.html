@@ -1,7 +1,31 @@
+<h3>Sort by:</h3>
 <div>
-  <h1>Order list:</h1>
-  <input class="add-order" type="submit" routerLink="/add-order" value="Add new order">
+  <label class="material-checkbox">
+    <input type="checkbox" (change)="showFinishedOrders()">
+    <span class="checkmark"></span>
+    Show finished orders.
+  </label>
+
 </div>
+
+  <div class="radio-inputs">
+    <label class="radio">
+      <input type="radio" name="radio" checked="" value="orderDate" [(ngModel)]="sortType" (change)="sortChange()">
+      <span class="name">Order date</span>
+    </label>
+    <label class="radio">
+      <input type="radio" name="radio" value="deadline" [(ngModel)]="sortType" (change)="sortChange()">
+      <span class="name">Deadline</span>
+    </label>
+
+    <label class="radio">
+      <input type="radio" name="radio" value="price" [(ngModel)]="sortType" (change)="sortChange()">
+      <span class="name">Price</span>
+    </label>
+  </div>
+<input class="add-order" type="submit" routerLink="/add-order" value="Add new order">
+  <h1>Order list:</h1>
+
 <table class="content-table">
   <thead>
   <tr>
