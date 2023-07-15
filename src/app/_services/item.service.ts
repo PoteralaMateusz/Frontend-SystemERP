@@ -49,6 +49,15 @@ export class ItemService {
     );
   }
 
+  addProgressItem(itemId:number,donePiecesToAdd:number):Observable<any>{
+    return this.http.post(`${ITEM_API}/progress/${itemId}/${donePiecesToAdd}`
+      , httpOptions).pipe(
+      tap(response => {
+        console.log(response);
+      })
+    );
+  }
+
   addItem(productId: number, material: string, quality: string, pieces: number, weight: number): Observable<any> {
     return this.http.post(`${ITEM_API}`, {
       productId: productId,
