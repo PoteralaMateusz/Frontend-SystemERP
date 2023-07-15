@@ -1,0 +1,52 @@
+<h1>Work progress to order: {{order.orderNumber}}</h1>
+
+<div class="products" *ngFor="let product of order.products; let i = index">
+  <div class="product-info">
+    <ul>
+      <li class="product-index">Product {{i + 1}}
+      </li>
+    </ul>
+    <table class="content-table">
+      <tbody>
+      <tr>
+        <td>Drawing name:</td>
+        <td>{{product.drawingName}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <table class="content-table">
+    <thead>
+    <tr>
+      <th>Material</th>
+      <th>Quality</th>
+      <th>Weight [kg/1pc]</th>
+      <th>Pieces</th>
+      <th>Done pieces</th>
+      <th>Add to done</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of product.items, let j = index">
+      <td>{{ item.material }}</td>
+      <td>{{ item.quality }}</td>
+      <td>{{ item.weight }}</td>
+      <td>{{ item.pieces * product.pieces }}</td>
+      <td>{{ item.donePieces }}</td>
+      <td>
+        <input
+          type="number"
+          name="donePieces"
+          [(ngModel)]="donePieces[i][j]"
+          required
+          >
+      </td>
+      <td><button type="button" (click)="addProgress(item.id, i,j)">Add</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+

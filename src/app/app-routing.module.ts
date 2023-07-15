@@ -11,6 +11,7 @@ import {ProductAddPageComponent} from "./product-add-page/product-add-page.compo
 import {ItemAddPageComponent} from "./item-add-page/item-add-page.component";
 import {ProductEditPageComponent} from "./product-edit-page/product-edit-page.component";
 import {ItemEditPageComponent} from "./item-edit-page/item-edit-page.component";
+import {WorkProgressPageComponent} from "./work-progress-page/work-progress-page.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'add-item', component: ItemAddPageComponent},
   {path: 'edit-item', component: ItemEditPageComponent},
   {path: 'order-details', component: OrderDetailsComponent},
+  {path: 'work-progress', component: WorkProgressPageComponent},
   {path: 'statistics', component: StatisticsPageComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

@@ -66,5 +66,6 @@ export class OrderPageComponent implements OnInit {
   }
 
   workProgress(id: number) {
+    this.router.navigate(['work-progress', {id: id}]);
   }
 }
