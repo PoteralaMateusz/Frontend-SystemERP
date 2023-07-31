@@ -14,21 +14,33 @@
         [(ngModel)]="form.username"
         required
         #username="ngModel"
+        [ngClass]="{ 'is-invalid': username.errors }"
       >
       <span></span>
       <label>Username</label>
+      <div *ngIf="username.errors" class="invalid-feedback">
+        Username is required!
+      </div>
     </div>
     <div class="txt_field">
       <input name="password"
              type="password"
              [(ngModel)]="form.password"
              required
+             minlength="3"
              #password="ngModel"
+             [ngClass]="{ 'is-invalid': password.errors }"
       >
       <span></span>
       <label>Password</label>
+      <div *ngIf="password.errors" class="invalid-feedback">
+        <div *ngIf="password.errors['required']">Password is required</div>
+        <div *ngIf="password.errors['minlength']">
+          Password must be at least 3 characters
+        </div>
+      </div>
     </div>
-    <input class="login" type="submit" (click)="onSubmit()" value="Log in">
+    <input class="login" type="submit" (click)="f.form.valid && onSubmit()" value="Log in">
     <div class="signup_link">
       Not a member ? <a href="register" >Signup</a>
     </div>
