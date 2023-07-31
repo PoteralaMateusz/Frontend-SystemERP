@@ -14,7 +14,6 @@ import { CustomerPageComponent } from './customer-page/customer-page.component';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { OrderAddPageComponent } from './order-add-page/order-add-page.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
-
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 import { ProductAddPageComponent } from './product-add-page/product-add-page.component';
 import { ItemAddPageComponent } from './item-add-page/item-add-page.component';

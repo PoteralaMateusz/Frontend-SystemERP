@@ -35,8 +35,14 @@ export class LoginPageComponent implements OnInit{
         this.reloadPage();
       },
       error: err => {
-        this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        if (err.status == 403){
+          this.errorMessage = 'Password is incorrect !';
+        }
+        else {
+          this.errorMessage = err.error;
+        }
+
       }
     });
   }
@@ -51,14 +57,4 @@ export class LoginPageComponent implements OnInit{
     this.reloadPage();
   }
 
-  takeStats() {
-    this.authService.getOrderStats(1).subscribe({
-      next: data => {
-        console.log(data);
-      },
-      error: err => {
-
-      }
-    })
-  }
 }
