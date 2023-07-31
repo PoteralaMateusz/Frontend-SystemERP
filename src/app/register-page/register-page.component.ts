@@ -14,18 +14,22 @@ export class RegisterPageComponent {
     lastname: null
   };
   isSignIn: boolean = false;
+  errorMessage: string = '';
+  isRegisterFailed: boolean = false;
 
   constructor(private authServiceService: AuthServiceService) {
   }
 
   onSubmit() {
-    const { username, password,lastname,firstname } = this.form;
-    this.authServiceService.register(firstname,lastname,username,password).subscribe({
+    const {username, password, lastname, firstname} = this.form;
+    this.authServiceService.register(firstname, lastname, username, password).subscribe({
       next: data => {
+        this.isRegisterFailed = false;
         this.isSignIn = true;
       },
       error: err => {
-
+        this.isRegisterFailed = true;
+        this.errorMessage = err.error;
       }
     })
   }

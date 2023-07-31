@@ -90,3 +90,12 @@ form .txt_field {
   transition: .5s;
 }
 
+.invalid-feedback{
+  color: red;
+  font-size: 12px;
+}
+.center h4{
+  text-align: center;
+  color: red;
+}
+
