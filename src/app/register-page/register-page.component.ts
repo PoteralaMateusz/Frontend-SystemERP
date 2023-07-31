@@ -30,6 +30,7 @@ export class RegisterPageComponent {
       error: err => {
         this.isRegisterFailed = true;
         this.errorMessage = err.error;
+        this.form.username = '';
       }
     })
   }

@@ -38,6 +38,7 @@ export class LoginPageComponent implements OnInit{
         this.isLoginFailed = true;
         if (err.status == 403){
           this.errorMessage = 'Password is incorrect !';
+          this.form.password = '';
         }
         else {
           this.errorMessage = err.error;
