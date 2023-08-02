@@ -1,14 +1,35 @@
 <div class="productDetails" >
 
   <h1>Enter the products:</h1>
-  <form (ngSubmit)="submitProductDetails()">
+  <form
+    name="form"
+    #f="ngForm">
     <label for="drawingName">Drawing name:</label>
-    <input type="text" id="drawingName" name="drawingName" [(ngModel)]="product.drawingName">
+    <div *ngIf="drawingName.errors" class="invalid-feedback">
+      Drawing name is required!
+    </div>
+    <input type="text" id="drawingName" name="drawingName"
+           [(ngModel)]="product.drawingName"
+           required
+           #drawingName="ngModel"
+           [ngClass]="{ 'is-invalid': drawingName.errors }"
+    >
 
     <label for="pieces">Pieces:</label>
-    <input type="number" id="pieces" name="pieces" [(ngModel)]="product.pieces">
+    <div *ngIf="pieces.errors" class="invalid-feedback">
+      <div *ngIf="pieces.errors['required']">Pieces is required!</div>
+      <div *ngIf="pieces.errors['min']">
+        Pieces must be only positive numbers!
+      </div>
+    </div>
+    <input type="number" id="pieces" name="pieces" [(ngModel)]="product.pieces"
+           required
+           min="1"
+           #pieces="ngModel"
+           [ngClass]="{ 'is-invalid': pieces.errors }"
+    >
 
-    <button type="submit">Submit</button>
+    <button type="submit" (click)="f.form.valid && submitProductDetails()" >Submit</button>
   </form>
 
 </div >

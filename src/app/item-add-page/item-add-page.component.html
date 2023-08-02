@@ -1,20 +1,62 @@
 <div class="itemsDetails">
 
   <h1>Enter the items of the product </h1>
-  <form >
+  <form name="form"
+        #f="ngForm">
+
     <label for="material">Material:</label>
-    <input type="text" id="material" name="material" [(ngModel)]="item.material">
+    <div *ngIf="material.errors" class="invalid-feedback">
+      Material is required!
+    </div>
+    <input type="text" id="material" name="material"
+           [(ngModel)]="item.material"
+           required
+           #material="ngModel"
+           [ngClass]="{ 'is-invalid': material.errors }"
+    >
 
     <label for="quality">Quality:</label>
-    <input type="text" id="quality" name="quality" [(ngModel)]="item.quality">
+    <div *ngIf="quality.errors" class="invalid-feedback">
+      Quality is required!
+    </div>
+    <input type="text" id="quality" name="quality"
+           [(ngModel)]="item.quality"
+           required
+           #quality="ngModel"
+           [ngClass]="{ 'is-invalid': quality.errors }"
+    >
 
     <label for="piecesItem">Pieces:</label>
-    <input type="number" id="piecesItem" name="piecesItem" [(ngModel)]="item.pieces">
+    <div *ngIf="piecesItem.errors" class="invalid-feedback">
+      <div *ngIf="piecesItem.errors['required']">Pieces is required!</div>
+      <div *ngIf="piecesItem.errors['min']">
+        Pieces must be only positive numbers!
+      </div>
+    </div>
+    <input type="number" id="piecesItem" name="piecesItem"
+           [(ngModel)]="item.pieces"
+           required
+           min="1"
+           #piecesItem="ngModel"
+           [ngClass]="{ 'is-invalid': piecesItem.errors }"
+    >
 
     <label for="weight">Weight [kg/pc.]</label>
-    <input type="number" id="weight" name="quality" [(ngModel)]="item.weight">
+    <div *ngIf="weight.errors" class="invalid-feedback">
+      <div *ngIf="weight.errors['required']">Weight is required!</div>
+      <div *ngIf="weight.errors['min']">
+        Weight must be only positive numbers!
+      </div>
+    </div>
+    <input type="number" id="weight" name="weight"
+           [(ngModel)]="item.weight"
+           required
+           min="0.0000001"
+           #weight="ngModel"
+           [ngClass]="{ 'is-invalid': weight.errors }"
+    >
 
-    <button type="submit" (click)="submitItemDetails()">Submit</button>
+    <button type="submit" (click)="f.form.valid && submitItemDetails()">Submit</button>
     <button type="submit" (click)="addNextProduct()">Add next product</button>
     <button type="submit" (click)="done()">Done!</button>
   </form>

@@ -1,26 +1,71 @@
 <div class="order-details">
 
   <h1>Enter the details of the new order:</h1>
-  <form (ngSubmit)="submitOrderDetails()">
+  <form
+    name="form"
+    #f="ngForm">
     <label for="customer">Choose a customer:</label>
-    <select id="customer" name="customer" [(ngModel)]="orderDetail.customerId">
+    <div *ngIf="customer.errors" class="invalid-feedback">
+      You must choose customer!
+    </div>
+    <select id="customer" name="customer"
+            [(ngModel)]="orderDetail.customerId"
+            required
+            #customer="ngModel"
+            [ngClass]="{ 'is-invalid': customer.errors }"
+    >
       <option *ngFor="let customer of customers" value="{{customer.customerId}}">{{customer.name}}</option>
     </select>
-
     <label for="orderNumber">Order Number:</label>
-    <input type="text" id="orderNumber" name="orderNumber" [(ngModel)]="orderDetail.orderNumber">
+    <div *ngIf="orderNumber.errors" class="invalid-feedback">
+      Order number is required!
+    </div>
+    <input type="text" id="orderNumber" name="orderNumber" [(ngModel)]="orderDetail.orderNumber"
+           required
+           #orderNumber="ngModel"
+           [ngClass]="{ 'is-invalid': orderNumber.errors }"
+    >
 
     <label for="orderDate">Order Date:</label>
-    <input type="date" id="orderDate" name="orderDate" [(ngModel)]="orderDetail.orderDate">
+    <div *ngIf="orderDate.errors" class="invalid-feedback">
+      Order date is required!
+    </div>
+    <input type="date" id="orderDate" name="orderDate"
+           [(ngModel)]="orderDetail.orderDate"
+           required
+           #orderDate="ngModel"
+           [ngClass]="{ 'is-invalid': orderDate.errors }"
+    >
 
     <label for="deadline">Deadline:</label>
-    <input type="date" id="deadline" name="deadline" [(ngModel)]="orderDetail.deadline">
-
+    <div *ngIf="deadline.errors" class="invalid-feedback">
+      Deadline is required!
+    </div>
+    <div *ngIf="badDate" class="invalid-feedback" >Deadline cant be before the order date!</div>
+    <input type="date" id="deadline" name="deadline"
+           [(ngModel)]="orderDetail.deadline"
+           required
+           min="{{orderDetail.orderDate}}"
+           #deadline="ngModel"
+           [ngClass]="{ 'is-invalid': deadline.errors }"
+    >
 
     <label for="price">Price:</label>
-    <input type="number" id="price" name="price" step="0.01" [(ngModel)]="orderDetail.price">
+    <div *ngIf="price.errors" class="invalid-feedback">
+      <div *ngIf="price.errors['required']">Price is required!</div>
+      <div *ngIf="price.errors['min']">
+        Price must be only positive numbers!
+      </div>
+    </div>
+    <input type="number" id="price" name="price" step="0.01"
+           [(ngModel)]="orderDetail.price"
+           required
+           min="0"
+           #price="ngModel"
+           [ngClass]="{ 'is-invalid': price.errors }"
+    >
 
-    <button type="submit">Submit</button>
+    <button type="submit" (click)="f.form.valid && submitOrderDetails()">Submit</button>
   </form>
 </div>
 

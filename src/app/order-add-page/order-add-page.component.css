@@ -60,4 +60,7 @@ form button[type="submit"]:hover {
 h1{
   text-align: center;
 }
-
+.invalid-feedback{
+  color: red;
+  font-size: 12px;
+}

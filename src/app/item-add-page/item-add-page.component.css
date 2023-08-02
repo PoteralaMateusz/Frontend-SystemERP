@@ -113,4 +113,8 @@ h1{
   height: 20px;
   width: auto;
 }
+.invalid-feedback{
+  color: red;
+  font-size: 12px;
+}
 

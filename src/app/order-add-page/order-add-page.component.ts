@@ -24,6 +24,7 @@ export class OrderAddPageComponent implements OnInit {
     items: {} as Item
   };
   orderId: number = 0;
+  badDate: boolean = false;
 
   constructor(private customerService: CustomerService, private orderService: OrderService, private router: Router) {
 
@@ -39,11 +40,17 @@ export class OrderAddPageComponent implements OnInit {
 
   submitOrderDetails() {
     const {customerId, orderNumber, orderDate, deadline, finishDate, price} = this.orderDetail;
-    this.orderService.saveOrder(customerId, orderNumber, orderDate, deadline, finishDate, price).subscribe({
-      next: data => {
-        this.orderId = data.id;
-        this.router.navigate(['add-product', {orderId: this.orderId}]);
-      }
-    });
+    if(deadline < orderDate)
+    {
+      this.badDate = true;
+      this.orderDetail.deadline = null;
+    }else {
+      this.orderService.saveOrder(customerId, orderNumber, orderDate, deadline, finishDate, price).subscribe({
+        next: data => {
+          this.orderId = data.id;
+          this.router.navigate(['add-product', {orderId: this.orderId}]);
+        }
+      });
+    }
   }
 }
