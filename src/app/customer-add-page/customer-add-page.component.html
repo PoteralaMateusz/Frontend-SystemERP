@@ -1,1 +1,107 @@
-<p>customer-add-page works!</p>
+<h1 *ngIf="addOperation">Add new customer</h1>
+<h1 *ngIf="!addOperation">Edit customer</h1>
+
+<form name="form"
+      #f="ngForm">
+  <table class="content-table">
+    <tbody>
+    <tr>
+      <td>Name:</td>
+      <td>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="customer.name"
+          required
+          #name="ngModel"
+          [ngClass]="{ 'is-invalid': name.errors }">
+        <div *ngIf="name.errors" class="invalid-feedback">
+          Name is required!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Street:</td>
+      <td>
+        <input
+          type="text"
+          name="street"
+          [(ngModel)]="customer.street"
+          required
+          #street="ngModel"
+          [ngClass]="{ 'is-invalid': street.errors }">
+
+        <div *ngIf="street.errors" class="invalid-feedback">
+          Street is required!
+        </div>
+      </td>
+    <tr>
+      <td>House number:</td>
+      <td>
+        <input
+          type="number"
+          name="houseNumber"
+          [(ngModel)]="customer.houseNumber"
+          required
+          #houseNumber="ngModel"
+          [ngClass]="{ 'is-invalid': houseNumber.errors }">
+        <div *ngIf="houseNumber.errors" class="invalid-feedback">
+          House number is required!
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>City:</td>
+      <td>
+        <input
+          type="text"
+          name="city"
+          [(ngModel)]="customer.city"
+          required
+          #city="ngModel"
+          [ngClass]="{ 'is-invalid': city.errors }">
+        <div *ngIf="city.errors" class="invalid-feedback">
+          City name is required!
+        </div>
+      </td>
+
+    </tr>
+    <tr>
+      <td>Zipcode:</td>
+      <td>
+        <input
+          type="number"
+          name="zipcode"
+          [(ngModel)]="customer.zipCode"
+          required
+          #zipcode="ngModel"
+          [ngClass]="{ 'is-invalid': zipcode.errors }">
+        <div *ngIf="city.errors" class="invalid-feedback">
+          Zipcode is required!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Country:</td>
+      <td>
+        <input
+          type="text"
+          name="country"
+          [(ngModel)]="customer.country"
+          required
+          #country="ngModel"
+          [ngClass]="{ 'is-invalid': country.errors }">
+        <div *ngIf="country.errors" class="invalid-feedback">
+          Country is required!
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</form>
+<div class="edit-product">
+  <input type="submit" *ngIf="!addOperation" (click)=" f.form.valid && saveChanges()" value="Save changes">
+  <input type="submit" *ngIf="addOperation" (click)=" f.form.valid && save()" value="Save">
+  <input type="submit" (click)="cancel()" value="Cancel">
+</div>

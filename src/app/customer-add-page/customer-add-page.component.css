@@ -1,0 +1,88 @@
+.content-table {
+  border-collapse: collapse;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #000A52;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #000A52;
+}
+
+.content-table tbody td button {
+  background-color: transparent;
+  text-align: center;
+  font-size: 16px;
+  color: #2691d9;
+  text-decoration: underline;
+}
+.content-table tbody td button:hover {
+  color: red;
+  cursor: pointer;
+}
+.content-table tbody input{
+  font-size: 0.9em;
+  height: 20px;
+  width: 100px;
+}
+
+h1{
+  text-align: center;
+}
+
+.edit-product{
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+.edit-product input{
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: auto;
+  height: 50px;
+  border: 1px solid;
+  background: #000A52;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+}
+.edit-product input:hover{
+  border-color: #000A52;
+  transition: .5s;
+}
+.invalid-feedback{
+  color: red;
+  font-size: 12px;
+}
