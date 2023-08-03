@@ -1,4 +1,5 @@
-<h1>Change item details</h1>
+<h1 *ngIf="!addOperation">Change item details</h1>
+<h1 *ngIf="addOperation">Add item </h1>
 <form
   name="form"
   #f="ngForm">
@@ -79,7 +80,7 @@
     </tr>
     <tr>
       <td>Done pieces:</td>
-      <td>
+      <td *ngIf="!addOperation">
         <input
           type="number"
           name="donePieces"
@@ -87,7 +88,7 @@
           required
           min="0"
           #donePieces="ngModel"
-          [ngClass]="{ 'is-invalid': donePieces.errors }">
+          [ngClass]="{ 'is-invalid': donePieces.errors }" >
         <div *ngIf="donePieces.errors" class="invalid-feedback">
           <div *ngIf="donePieces.errors['required']">Done pieces is required!</div>
           <div *ngIf="donePieces.errors['min']">
@@ -101,7 +102,8 @@
   </table>
 </form>
 <div class="edit-product">
-  <input type="submit" (click)="f.form.valid && saveChanges()" value="Save">
+  <input type="submit" (click)="f.form.valid && saveChanges()" value="Save changes" *ngIf="!addOperation">
+  <input type="submit" (click)="f.form.valid && saveItem()" value="Save item" *ngIf="addOperation">
   <input type="submit" (click)="cancelChanges()" value="Cancel">
 </div>
 

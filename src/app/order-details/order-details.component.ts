@@ -14,17 +14,7 @@ import {ProductService} from "../_services/product.service";
 export class OrderDetailsComponent {
   params: any;
   order = {} as Order;
-  form: any = {
-    id: null,
-    productId: null,
-    material: null,
-    quality: null,
-    pieces: null,
-    donePieces: null,
-    weight: null
-  };
   toUpdate = false;
-  operation = "Add";
   isEditMode = false;
   isFinished = true;
 
@@ -45,7 +35,7 @@ export class OrderDetailsComponent {
   }
 
   updateItem(item: Item) {
-    this.router.navigate(['edit-item', {productId: item.id,orderId:this.params.id}]);
+    this.router.navigate(['edit-item', {itemId: item.id,orderId:this.params.id}]);
   }
 
   deleteItem(item: Item) {
@@ -53,23 +43,8 @@ export class OrderDetailsComponent {
     window.location.reload();
   }
 
-  clearAddForm() {
-    this.form = {
-      id: null,
-      productId: null,
-      material: null,
-      quality: null,
-      pieces: null,
-      donePieces: null,
-      weight: null
-    };
-    this.toUpdate = false;
-  }
-
   addItem(productId: number) {
-      const {material, quality, pieces, weight} = this.form;
-      this.itemService.addItem(productId, material, quality, pieces, weight).subscribe();
-      window.location.reload();
+    this.router.navigate(['edit-item', {productId: productId,orderId:this.params.id}]);
   }
 
   editMode() {

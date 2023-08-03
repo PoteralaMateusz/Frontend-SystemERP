@@ -59,55 +59,17 @@
       </td>
 
     </tr>
-    <tr *ngIf="isEditMode">
-      <td>
-        <input
-          type="text"
-          name="material"
-          [(ngModel)]="form.material"
-          required
-          #material="ngModel">
-      </td>
 
-      <td>
-        <input
-          type="text"
-          name="quality"
-          [(ngModel)]="form.quality"
-          required
-          #quality="ngModel">
-      </td>
-      <td>
-        <input
-          type="number"
-          name="weight"
-          [(ngModel)]="form.weight"
-          required
-          #weight="ngModel">
-      </td>
-      <td>
-        <input
-          type="number"
-          name="pieces"
-          [(ngModel)]="form.pieces"
-          required
-          #pieces="ngModel">
-      </td>
-      <td>
-        <input
-          type="number"
-          name="donePieces"
-          [(ngModel)]="form.donePieces"
-          required
-          #donePieces="ngModel"
-          *ngIf="toUpdate">
-      </td>
-      <td>
-        <button type="button" (click)="addItem(product.id)">Add</button>
-      </td>
-      <td>
-        <button type="button" (click)="clearAddForm()">Clear</button>
-      </td>
+    <tr *ngIf="isEditMode">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button type="button" (click)=" addItem(product.id)">Add</button>
+        </td>
     </tr>
     </tbody>
   </table>

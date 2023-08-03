@@ -17,17 +17,22 @@ export class ItemEditPageComponent {
     weight: null,
   };
   params: any;
-  doneError:boolean = false;
+  doneError: boolean = false;
+  addOperation: boolean = false;
 
   constructor(private itemService: ItemService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe({
       next: params => {
         this.params = params;
-        this.itemService.getItemByID(this.params.productId).subscribe({
-          next: value => {
-            this.item = value;
-          }
-        })
+        if (this.params.productId == null) {
+          this.itemService.getItemByID(this.params.itemId).subscribe({
+            next: value => {
+              this.item = value;
+            }
+          });
+        }else {
+          this.addOperation = true;
+        }
       }
     })
   }
@@ -39,16 +44,32 @@ export class ItemEditPageComponent {
         this.router.navigate(['order-details', {id: this.params.orderId}]);
       },
       error: err => {
-        if (err.status == 409){
-          this.doneError =true;
+        if (err.status == 409) {
+          this.doneError = true;
           this.item.donePieces = 0;
         }
 
       }
-    })
+    });
   }
 
   cancelChanges() {
     this.router.navigate(['order-details', {id: this.params.orderId}]);
+  }
+
+  saveItem() {
+    const {material, quality, pieces, donePieces, weight} = this.item;
+    this.itemService.addItem(this.params.productId, material, quality, pieces, weight).subscribe({
+      next: value => {
+        this.router.navigate(['order-details', {id: this.params.orderId}]);
+      },
+      error: err => {
+        if (err.status == 409) {
+          this.doneError = true;
+          this.item.donePieces = 0;
+        }
+
+      }
+    });
   }
 }
