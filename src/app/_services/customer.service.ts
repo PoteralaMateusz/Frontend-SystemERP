@@ -21,6 +21,10 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${CUSTOMER_API}`, httpOptions);
   }
 
+  getCustomerById(id:number):Observable<Customer>{
+    return this.http.get<Customer>(`${CUSTOMER_API}/${id}`,httpOptions);
+  }
+
   addCustomer(name: string, street: string, houseNumber: number, city: string, zipcode: number, country: string): Observable<any> {
     return this.http.post(`${CUSTOMER_API}`, {
       name: name,
