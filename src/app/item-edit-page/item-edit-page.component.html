@@ -1,63 +1,107 @@
 <h1>Change item details</h1>
+<form
+  name="form"
+  #f="ngForm">
+  <table class="content-table">
+    <tbody>
+    <tr>
+      <td>Material:</td>
+      <td>
+        <input
+          type="text"
+          name="material"
+          [(ngModel)]="item.material"
+          required
+          #material="ngModel"
+          [ngClass]="{ 'is-invalid': material.errors }">
 
-<table class="content-table">
-  <tbody>
-  <tr>
-    <td>Material:</td>
-    <td>
-      <input
-        type="text"
-        name="material"
-        [(ngModel)]="item.material"
-        required>
-    </td>
-  </tr>
-  <tr>
-    <td>Quality:</td>
-    <td>
-      <input
-        type="text"
-        name="pieces"
-        [(ngModel)]="item.quality"
-        required>
-    </td>
+        <div *ngIf="material.errors" class="invalid-feedback">
+          Material is required!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Quality:</td>
+      <td>
+        <input
+          type="text"
+          name="quality"
+          [(ngModel)]="item.quality"
+          required
+          #quality="ngModel"
+          [ngClass]="{ 'is-invalid': quality.errors }">
 
-  </tr>
-  <tr>
-    <td>Weight [kg/1pc]:</td>
-    <td>
-      <input
-        type="number"
-        name="weight"
-        [(ngModel)]="item.weight"
-        required>
-    </td>
-  </tr>
-  <tr>
-    <td>Pieces:</td>
-    <td>
-      <input
-        type="number"
-        name="pieces"
-        [(ngModel)]="item.pieces"
-        required>
-    </td>
-  </tr>
-  <tr>
-    <td>Done pieces:</td>
-    <td>
-      <input
-        type="number"
-        name="donePieces"
-        [(ngModel)]="item.donePieces"
-        required>
-    </td>
-  </tr>
-  </tbody>
-</table>
+        <div *ngIf="quality.errors" class="invalid-feedback">
+          Quality is required!
+        </div>
+      </td>
 
+    </tr>
+    <tr>
+      <td>Weight [kg/1pc]:</td>
+      <td>
+        <input
+          type="number"
+          name="weight"
+          [(ngModel)]="item.weight"
+          required
+          min="0.0000001"
+          #weight="ngModel"
+          [ngClass]="{ 'is-invalid': weight.errors }">
+
+        <div *ngIf="weight.errors" class="invalid-feedback">
+          <div *ngIf="weight.errors['required']">Weight is required!</div>
+          <div *ngIf="weight.errors['min']">
+            Weight must be only positive numbers!
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Pieces:</td>
+      <td>
+        <input
+          type="number"
+          name="pieces"
+          [(ngModel)]="item.pieces"
+          required
+          min="1"
+          #pieces="ngModel"
+          [ngClass]="{ 'is-invalid': pieces.errors }">
+
+        <div *ngIf="pieces.errors" class="invalid-feedback">
+          <div *ngIf="pieces.errors['required']">Pieces is required!</div>
+          <div *ngIf="pieces.errors['min']">
+            Pieces must be only positive numbers!
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Done pieces:</td>
+      <td>
+        <input
+          type="number"
+          name="donePieces"
+          [(ngModel)]="item.donePieces"
+          required
+          min="0"
+          #donePieces="ngModel"
+          [ngClass]="{ 'is-invalid': donePieces.errors }">
+        <div *ngIf="donePieces.errors" class="invalid-feedback">
+          <div *ngIf="donePieces.errors['required']">Done pieces is required!</div>
+          <div *ngIf="donePieces.errors['min']">
+            Done pieces must be only positive numbers!
+          </div>
+        </div>
+        <div *ngIf="doneError" class="invalid-feedback">Number out of range</div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</form>
 <div class="edit-product">
-  <input type="submit" (click)="saveChanges()"  value="Save">
+  <input type="submit" (click)="f.form.valid && saveChanges()" value="Save">
   <input type="submit" (click)="cancelChanges()" value="Cancel">
 </div>
 

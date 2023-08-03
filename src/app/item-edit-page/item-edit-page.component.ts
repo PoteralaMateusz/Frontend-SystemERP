@@ -17,6 +17,7 @@ export class ItemEditPageComponent {
     weight: null,
   };
   params: any;
+  doneError:boolean = false;
 
   constructor(private itemService: ItemService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe({
@@ -36,6 +37,13 @@ export class ItemEditPageComponent {
     this.itemService.updateItem(id, material, quality, pieces, donePieces, weight).subscribe({
       next: value => {
         this.router.navigate(['order-details', {id: this.params.orderId}]);
+      },
+      error: err => {
+        if (err.status == 409){
+          this.doneError =true;
+          this.item.donePieces = 0;
+        }
+
       }
     })
   }

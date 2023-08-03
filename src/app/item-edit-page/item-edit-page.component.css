@@ -82,3 +82,7 @@ h1{
   border-color: #000A52;
   transition: .5s;
 }
+.invalid-feedback{
+  color: red;
+  font-size: 12px;
+}
