@@ -27,8 +27,7 @@ export class ProductEditPageComponent {
 
   saveChanges() {
     this.productService.updateProduct(this.productId,this.product.drawingName,this.product.pieces).subscribe();
-    window.location.reload();
-
+    this.router.navigate(['order-details',{id: this.product.orderId}]);
   }
 
   cancelChanges() {

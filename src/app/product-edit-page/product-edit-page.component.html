@@ -1,5 +1,6 @@
 <h1>Change product details</h1>
-
+<form name="form"
+      #f="ngForm">
 <table class="content-table">
   <tbody>
   <tr>
@@ -9,7 +10,12 @@
         type="text"
         name="drawingName"
         [(ngModel)]="product.drawingName"
-        required>
+        required
+        #drawingName="ngModel"
+        [ngClass]="{ 'is-invalid': drawingName.errors }">
+      <div *ngIf="drawingName.errors" class="invalid-feedback">
+        Drawing name is required!
+      </div>
     </td>
   </tr>
   <tr>
@@ -19,14 +25,24 @@
       type="number"
       name="pieces"
       [(ngModel)]="product.pieces"
-      required>
+      required
+      min="1"
+      #pieces="ngModel"
+      [ngClass]="{ 'is-invalid': pieces.errors }">
+
+      <div *ngIf="pieces.errors" class="invalid-feedback">
+        <div *ngIf="pieces.errors['required']">Pieces is required!</div>
+        <div *ngIf="pieces.errors['min']">
+          Pieces must be only positive numbers!
+        </div>
+      </div>
     </td>
 
   </tr>
   </tbody>
 </table>
-
+</form>
 <div class="edit-product">
-  <input type="submit" (click)="saveChanges()"  value="Save">
+  <input type="submit" (click)=" f.form.valid && saveChanges()"  value="Save">
   <input type="submit" (click)="cancelChanges()" value="Cancel">
 </div>
