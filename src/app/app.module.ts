@@ -21,6 +21,7 @@ import { ProductEditPageComponent } from './product-edit-page/product-edit-page.
 import { ItemEditPageComponent } from './item-edit-page/item-edit-page.component';
 import { WorkProgressPageComponent } from './work-progress-page/work-progress-page.component';
 import { CustomerAddPageComponent } from './customer-add-page/customer-add-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CustomerAddPageComponent } from './customer-add-page/customer-add-page.
     ProductEditPageComponent,
     ItemEditPageComponent,
     WorkProgressPageComponent,
-    CustomerAddPageComponent
+    CustomerAddPageComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,

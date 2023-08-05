@@ -13,6 +13,7 @@ import {ProductEditPageComponent} from "./product-edit-page/product-edit-page.co
 import {ItemEditPageComponent} from "./item-edit-page/item-edit-page.component";
 import {WorkProgressPageComponent} from "./work-progress-page/work-progress-page.component";
 import {CustomerAddPageComponent} from "./customer-add-page/customer-add-page.component";
+import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'order-details', component: OrderDetailsComponent},
   {path: 'work-progress', component: WorkProgressPageComponent},
   {path: 'statistics', component: StatisticsPageComponent},
+  {path: 'welcome', component: WelcomePageComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
