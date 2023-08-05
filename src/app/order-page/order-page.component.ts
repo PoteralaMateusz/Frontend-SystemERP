@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../_services/order.service";
 import {Order} from "../model/order";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../_services/token-storage.service";
 
 @Component({
   selector: 'app-order-page',
@@ -15,10 +16,13 @@ export class OrderPageComponent implements OnInit {
   showFinished = false;
   sortType: string = 'orderDate';
 
-  constructor(private orderService: OrderService, private router: Router) {
+  constructor(private orderService: OrderService, private router: Router, private tokenStorageService:TokenStorageService) {
   }
 
   ngOnInit(): void {
+    if (!this.tokenStorageService.isLoggedIn()){
+      this.router.navigate(['/login']);
+    }
     this.orderService.getAllOrders().subscribe({
       next: data => {
         this.allOrders = data;

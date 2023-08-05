@@ -13,7 +13,7 @@ export class CustomerPageComponent implements OnInit {
   public customers: Customer[] = [];
   public isLogged = false;
 
-  constructor(private customerService: CustomerService, private tokenStorageService: TokenStorageService, private router:Router) {
+  constructor(private customerService: CustomerService, private tokenStorageService: TokenStorageService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,8 +25,9 @@ export class CustomerPageComponent implements OnInit {
           console.log(this.customers);
         }
       });
+    } else {
+      this.router.navigate(['/login']);
     }
-    console.log(this.isLogged);
   }
 
   addCustomer() {

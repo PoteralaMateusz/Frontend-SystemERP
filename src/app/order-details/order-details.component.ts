@@ -18,8 +18,10 @@ export class OrderDetailsComponent {
   isEditMode = false;
   isFinished = true;
 
-  constructor(private route: ActivatedRoute, private router: Router,
-              private orderService: OrderService, private itemService: ItemService,
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private orderService: OrderService,
+              private itemService: ItemService,
               private productService: ProductService) {
     this.route.params.subscribe(params => {
       this.params = params;
@@ -27,7 +29,7 @@ export class OrderDetailsComponent {
     this.orderService.getOrderById(this.params.id).subscribe({
       next: data => {
         this.order = data;
-        if (this.order.finishDate != null){
+        if (this.order.finishDate != null) {
           this.isFinished = false;
         }
       }
@@ -35,7 +37,7 @@ export class OrderDetailsComponent {
   }
 
   updateItem(item: Item) {
-    this.router.navigate(['edit-item', {itemId: item.id,orderId:this.params.id}]);
+    this.router.navigate(['edit-item', {itemId: item.id, orderId: this.params.id}]);
   }
 
   deleteItem(item: Item) {
@@ -44,7 +46,7 @@ export class OrderDetailsComponent {
   }
 
   addItem(productId: number) {
-    this.router.navigate(['edit-item', {productId: productId,orderId:this.params.id}]);
+    this.router.navigate(['edit-item', {productId: productId, orderId: this.params.id}]);
   }
 
   editMode() {
@@ -63,4 +65,6 @@ export class OrderDetailsComponent {
     this.productService.deleteProductById(id).subscribe();
     window.location.reload();
   }
+
+
 }

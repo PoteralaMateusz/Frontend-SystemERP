@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../_services/order.service";
 import {OrderStats} from "../model/orderStats";
+import {TokenStorageService} from "../_services/token-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-statistics-page',
@@ -10,10 +12,13 @@ import {OrderStats} from "../model/orderStats";
 export class StatisticsPageComponent implements OnInit {
   ordersStats: OrderStats[] = [];
 
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, private tokenStorageService: TokenStorageService, private router: Router) {
   }
 
   ngOnInit(): void {
+    if (!this.tokenStorageService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+    }
     this.orderService.getOrdersStats().subscribe({
       next: data => {
         this.ordersStats = data.sort((a, b) => a.daysToDeadline - b.daysToDeadline);
